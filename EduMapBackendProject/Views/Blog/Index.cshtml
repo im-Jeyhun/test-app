@@ -1,0 +1,68 @@
+﻿@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <!-- Banner Area Start -->
+    <div class="banner-area-wrapper">
+        <div class="banner-area text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="banner-content-wrapper">
+                            <div class="banner-content">
+                                <h2>blog</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Banner Area End -->
+    <!-- Blog Start -->
+    <div class="blog-area pt-150 pb-150">
+        <div class="container">
+            <div class="row">
+                @foreach (var blog in Model)
+            {
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <div class="single-blog mb-60">
+                        <div class="blog-img">
+                            <a href="#"><img src="~/img/blog/@blog.ImagePath" alt="blog"></a>
+                            <div class="blog-hover">
+                                <i class="fa fa-link"></i>
+                            </div>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-top">
+                                <p>@blog.Author  /  @blog.Date.ToString("dd MMMM, yyyy")  /  <i class="fa fa-comments-o"></i> 4</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <h2><a href="blog-details.html">@blog.Title</a></h2>
+                                <a asp-controller="blog" asp-action="detail" asp-route-id="@blog.Id">read more</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+                
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="pagination">
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Blog End -->
+    <!-- Subscribe Start -->
+    @await Html.PartialAsync("_SubscribePartial")
+    <!-- Subscribe End -->
+   

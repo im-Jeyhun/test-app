@@ -1,0 +1,54 @@
+﻿@using EduMapBackendProject.Areas.Admin.ViewModels.CourseFeatureVM
+@model CourseListViewModel
+
+<div class="col-lg-12">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-controller="coursefeauture" asp-action="create" asp-route-courseId="@Model.CourseId" class="btn btn-secondary">Add new course feuture</a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Course Feauture</h4>
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Starts</th>
+                            <th>Duration</th>
+                            <th>ClassDuration</th>
+                            <th>SkillLevel</th>
+                            <th>Language</th>
+                            <th>StudentsCount</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var courseFeuture in Model.CourseFeatures)
+                        {
+                            <tr>
+                                <td>@courseFeuture.Starts</td>
+                                <td>@courseFeuture.Duration</td>
+                                <td>@courseFeuture.ClassDuration</td>
+                                <td>@courseFeuture.SkillLevel</td>
+                                <td>@courseFeuture.Language</td>
+                                <td>@courseFeuture.StudentsCount</td>
+                                <td class="text-end">
+                                    <a asp-controller="coursefeauture" asp-action="update" asp-route-id="@courseFeuture.Id" asp-route-courseId ="@courseFeuture.CourseId" ><i class="las la-pen text-secondary font-16"></i></a>
+                                    <form method="POST"asp-controller="course" asp-action="delete" asp-route-id="@courseFeuture.Id" id="courseFeuture-form-@courseFeuture.Id"></form>
+                                    <button type="submit" form="courseFeuture-form-@courseFeuture.Id">
+                                        <i class="las la-trash-alt text-secondary font-16"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table><!--end /table-->
+            </div><!--end /tableresponsive-->
+        </div><!--end card-body-->
+    </div><!--end card-->
+</div>

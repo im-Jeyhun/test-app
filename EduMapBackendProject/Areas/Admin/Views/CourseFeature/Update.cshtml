@@ -1,0 +1,68 @@
+﻿@using EduMapBackendProject.Areas.Admin.ViewModels.CourseFeatureVM
+@model CourseFeatureUpdateVM
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Speaker</h4>
+            </div>
+            <div class="card-body">
+                <div class="general-label">
+                    <form method="POST" asp-controller="coursefeuture" asp-action="update" enctype="multipart/form-data">
+                        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label>Starts</label>
+                            <input asp-for="Starts" class="form-control">
+                            <span asp-validation-for="Starts" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Duration</label>
+                            <input asp-for="Duration" class="form-control">
+                            <span asp-validation-for="Duration" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>ClassDuration</label>
+                            <input asp-for="ClassDuration" class="form-control">
+                            <span asp-validation-for="ClassDuration" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>SkillLevel</label>
+                            <input asp-for="SkillLevel" class="form-control">
+                            <span asp-validation-for="SkillLevel" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Language</label>
+                            <input asp-for="Language" class="form-control">
+                            <span asp-validation-for="Language" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>StudentsCount</label>
+                            <input asp-for="StudentsCount" class="form-control">
+                            <span asp-validation-for="StudentsCount" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Assesments</label>
+                            <input asp-for="Assesments" class="form-control">
+                            <span asp-validation-for="Assesments" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Feee</label>
+                            <input asp-for="Fee" class="form-control">
+                            <span asp-validation-for="Fee" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+            </div><!--end card-body-->
+        </div><!--end card-->
+    </div>
+</div>

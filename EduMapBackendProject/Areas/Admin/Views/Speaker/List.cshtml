@@ -1,0 +1,48 @@
+﻿@using EduMapBackendProject.DAL.Entities
+@model List<Speaker>
+
+<div class="col-lg-12">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-controller="speaker" asp-action="create" class="btn btn-secondary">Add new speaker</a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Speaker</h4>
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Tittle</th>
+                            <th>Desctiption</th>
+                            <th>Image</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var speaker in Model)
+                        {
+                            <tr>
+                                <td>@speaker.FullName</td>
+                                <td>@speaker.Position</td>
+                                <td> <img src="~/@speaker.ImagePath" width="10%"> </td>
+                                <td class="text-end">
+                                    <a asp-controller="speaker" asp-action="update" asp-route-id="@speaker.Id"><i class="las la-pen text-secondary font-16"></i></a>
+                                    <form method="POST"asp-controller="slider" asp-action="delete" asp-route-id="@speaker.Id" id="slider-form-@speaker.Id"></form>
+                                    <button type="submit" form="slider-form-@speaker.Id">
+                                        <i class="las la-trash-alt text-secondary font-16"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table><!--end /table-->
+            </div><!--end /tableresponsive-->
+        </div><!--end card-body-->
+    </div><!--end card-->
+</div>

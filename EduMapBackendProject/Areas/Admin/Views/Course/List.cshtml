@@ -1,0 +1,49 @@
+﻿@using EduMapBackendProject.DAL.Entities
+@model List<Course>
+
+<div class="col-lg-12">
+    <div class="row justify-content-end">
+        <div class="">
+            <a asp-controller="course" asp-action="create" class="btn btn-secondary">Add new course</a>
+        </div>
+    </div>
+</div>
+<div class="col-lg-12">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Course</h4>
+        </div><!--end card-header-->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-striped mb-0">
+                    <thead>
+                        <tr>
+                            <th>Tittle</th>
+                            <th>Desctiption</th>
+                            <th>Image</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var course in Model)
+                        {
+                            <tr>
+                                <td>@course.Title</td>
+                                <td>@course.Description</td>
+                                <td> <img src="~img/@course.ImagePath" width="10%"> </td>
+                                <td class="text-end">
+                                    <a asp-controller="course" asp-action="update" asp-route-id="@course.Id"><i class="las la-pen text-secondary font-16"></i></a>
+                                    <form method="POST"asp-controller="course" asp-action="delete" asp-route-id="@course.Id" id="course-form-@course.Id"></form>
+                                    <button type="submit" form="course-form-@course.Id">
+                                        <i class="las la-trash-alt text-secondary font-16"></i>
+                                    </button>
+                                    <a asp-controller="coursefeauture" asp-action="list" asp-route-courseId="@course.Id">Feautures</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table><!--end /table-->
+            </div><!--end /tableresponsive-->
+        </div><!--end card-body-->
+    </div><!--end card-->
+</div>
