@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EduMapBackendProject.Areas.EduHomeArea.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     public class UserController : Controller
     {
         private readonly UserManager<User> _userManager;

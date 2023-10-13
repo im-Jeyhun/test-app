@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EduMapBackendProject.Areas.Admin.Controllers
 {
-    [Area("Admin")]
+    [Area("admin")]
     public class SpeakerController : Controller
     {
         private readonly EduMapDbContext _dataContext;
