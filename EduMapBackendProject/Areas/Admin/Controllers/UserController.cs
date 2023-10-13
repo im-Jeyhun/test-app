@@ -62,7 +62,7 @@ namespace EduMapBackendProject.Areas.EduHomeArea.Controllers
         }
 
 
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Update(string id)
         {
             if (id == null) return NotFound();
 
